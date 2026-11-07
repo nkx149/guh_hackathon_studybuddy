@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Login from "./Login";
 import Today from "./Today";
-import Planner from "./Planner";
+import Assignments from "./Assignments";
 import Calendar from "./Calendar";
 import StudyBuddy from "./StudyBuddy";
 import Societies from "./Societies";
@@ -11,6 +11,7 @@ import { DAY, fmtDay, fmtTime, statusOf, TABS } from "./data";
 function Dashboard({ profile, onSignOut }) {
   const [tab, setTab] = useState("today");
   const [voiceOn, setVoiceOn] = useState(false);
+  const [focusAssignmentId, setFocusAssignmentId] = useState(null);
   const { tasks, setTasks, now, setNow, resetDemo } = useTasks();
   const jumped = now > new Date(2026, 10, 9, 9, 0);
   const overdue = tasks.filter(task => statusOf(task, now).key === "overdue").length;
@@ -35,8 +36,8 @@ function Dashboard({ profile, onSignOut }) {
           </div>
         </div>
         <div className="content">
-          {tab === "today" && <Today profile={profile} tasks={tasks} setTasks={setTasks} now={now} voiceOn={voiceOn} jumped={jumped} />}
-          {tab === "planner" && <Planner tasks={tasks} setTasks={setTasks} now={now} go={setTab} />}
+          {tab === "today" && <Today profile={profile} tasks={tasks} setTasks={setTasks} now={now} voiceOn={voiceOn} jumped={jumped} focusAssignmentId={focusAssignmentId} onFocusHandled={() => setFocusAssignmentId(null)} />}
+          {tab === "assignments" && <Assignments tasks={tasks} onPlan={id => { setFocusAssignmentId(id); setTab("today"); }} />}
           {tab === "calendar" && <Calendar tasks={tasks} now={now} />}
           {tab === "study" && <StudyBuddy profile={profile} voiceOn={voiceOn} />}
           {tab === "social" && <Societies profile={profile} now={now} />}

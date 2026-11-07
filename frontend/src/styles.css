@@ -140,3 +140,9 @@ button{cursor:pointer}
   .plan-row input[type=date]{grid-column:2/3}
 }
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--surface)}
+
+/* Voice check-in mic toggle: green = live, red = muted */
+.mic-btn{display:inline-grid;place-items:center;width:40px;height:40px;border-radius:999px;border:1px solid var(--ok);background:var(--ok-soft);color:var(--ok);cursor:pointer;transition:background .15s,color .15s,border-color .15s}
+.mic-btn:hover{filter:brightness(1.05)}
+.mic-btn.muted{border-color:var(--bad);background:var(--bad-soft);color:var(--bad)}
+.mic-btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}

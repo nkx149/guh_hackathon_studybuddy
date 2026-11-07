@@ -16,7 +16,7 @@ function TaskList({ tasks, now, onToggle }) {
   );
 }
 
-export default function Today({ profile, tasks, setTasks, now, voiceOn, jumped }) {
+export default function Today({ profile, tasks, setTasks, now, voiceOn, jumped, focusAssignmentId, onFocusHandled }) {
   const counts = useMemo(() => {
     const c = { done: 0, overdue: 0, risk: 0, track: 0 };
     tasks.forEach(t => c[statusOf(t, now).key]++); return c;
@@ -35,7 +35,7 @@ export default function Today({ profile, tasks, setTasks, now, voiceOn, jumped }
         <div className="stat"><span className="label">Done</span><b style={{ color: "var(--ok)" }}>{counts.done}</b></div>
       </div>
       <div className="grid2">
-        <Coach profile={profile} tasks={tasks} setTasks={setTasks} now={now} voiceOn={voiceOn} />
+        <Coach profile={profile} tasks={tasks} setTasks={setTasks} now={now} voiceOn={voiceOn} focusAssignmentId={focusAssignmentId} onFocusHandled={onFocusHandled} />
         <div className="panel"><div className="row-actions" style={{ marginBottom: ".4rem" }}><h2>Your plan</h2><span className="muted" style={{ fontSize: ".85rem" }}>{tasks.length} tasks</span></div>
           <TaskList tasks={tasks} now={now} onToggle={toggle} /></div>
       </div>

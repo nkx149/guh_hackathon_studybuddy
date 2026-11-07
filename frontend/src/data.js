@@ -31,9 +31,9 @@ export function speak(text, on, lang) {
 }
 
 export const SEED_TASKS = [
-  { id: "t1", title: "Read essay brief and pick a question", due: at(0, 17), done: false, src: "plan" },
-  { id: "t2", title: "Outline essay in 5 sections", due: at(1, 17), done: false, src: "plan" },
-  { id: "t3", title: "Draft sections 1–2 (800 words)", due: at(3, 17), done: false, src: "plan" },
+  { id: "t1", title: "Read essay brief and pick a question", due: at(0, 17), done: false, src: "plan", assignmentId: "a1" },
+  { id: "t2", title: "Outline essay in 5 sections", due: at(1, 17), done: false, src: "plan", assignmentId: "a1" },
+  { id: "t3", title: "Draft sections 1–2 (800 words)", due: at(3, 17), done: false, src: "plan", assignmentId: "a1" },
   { id: "t4", title: "COMP12111 Lab 4 submission", due: at(4, 12), done: false, src: "course" },
 ];
 export const LECTURES = [
@@ -57,4 +57,4 @@ export const EXPLAIN = {
   Mandarin: "递归是指函数通过在同一问题的较小版本上调用自身来解决问题。它需要一个基本情况（停止的地方）和一个递归情况（缩小问题的地方）。",
 };
 
-export const TABS = [["today", "Today"], ["planner", "Planner"], ["calendar", "Calendar"], ["study", "Study Buddy"], ["social", "Societies"]];
+export const TABS = [["today", "Today"], ["assignments", "Assignments"], ["calendar", "Calendar"], ["study", "Study Buddy"], ["social", "Societies"]];
