@@ -18,3 +18,5 @@ Then open http://localhost:5173
 - `StudyBuddy.respond()`: replace keyword matching with the tutor agent; keep the guardrail checks.
 - `speak()`: swap browser speechSynthesis for ElevenLabs text-to-speech.
 - Never put API keys in frontend code. Call the services from a small backend.
+
+# guh_hackathon_studybuddy
